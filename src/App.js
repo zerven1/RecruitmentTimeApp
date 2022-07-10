@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import TimeChecker from './components/TimeChecker'
+import React from 'react';
+class App extends React.Component {
 
-function App() {
+  constructor(props){
+    super(props);
+    this.state = {
+      inputValue:Math.floor(Date.now()/1000)
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    this.setState({
+      inputValue: event.target.value
+    })
+  }
+  render() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Please type your time in Timestampx format:</h1>
+        <input type="number" className='main-input' value={this.state.inputValue} onChange={this.handleChange} />
+          <TimeChecker lastSeen={this.state.inputValue}/>
       </header>
     </div>
   );
 }
-
+}
 export default App;

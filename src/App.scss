@@ -1,0 +1,22 @@
+$primary:grey;
+
+body{
+    background-color: $primary;
+}
+.App-header{
+    display:flex;
+    align-items:center ;
+    flex-direction: column;
+
+
+    .main-input{
+        border-radius: 10px;
+        box-shadow: 5px grey;
+        border:1px solid black;
+        min-height:35px;
+        width:30%;
+        font-size:25px;
+        text-align:center;
+    }
+
+}
